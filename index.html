@@ -1,205 +1,337 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início - Rumo4Projetos</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@300;400;600&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Início - Rumo4Projetos</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@300;400;600&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body { 
-            font-family: 'Arial', sans-serif; 
-            display: flex; 
-            height: 100vh;
-            flex-direction: column;
-        }
-        /* Estilização do menu lateral */
-        nav {
-            width: 250px;
-            height: 100vh;
-            background: linear-gradient(to bottom, white 60%, #f0f0f0);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: fixed;
-            left: 0;
-            top: 0;
-            border-radius: 0 20px 20px 0;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            padding-bottom: 20px;
-        }
-        .nav-content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            padding-left: 20px;
-        }
-        nav img {
-            max-width: 130%;
-            padding: 0px;
-            border-radius: 10px;
-        }
-        /* Estilização dos links do menu */
-        nav a {
-            color: #35608a;
-            text-decoration: none;
-            padding: 15px;
-            width: 90%;
-            text-align: left;
-            transition: 0.3s;
-            font-weight: bold;
-            font-size: 16px;
-            border-radius: 10px;
-            padding-left: 10px;
-        }
-        nav a:hover {
-            background: rgba(9, 98, 182, 0.2);
-        }
-        nav a.active {
-            background: #a6d5fa;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-        /* Área de conteúdo principal */
-        .content {
-            margin-left: 250px;
-            width: calc(100% - 250px);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            background: url('image/home.png') no-repeat center center/cover;
-            padding-bottom: 60px;
-        }
-        /* Estilização do carrossel */
-        .carousel {
-            width: 80%;
-            max-width: 600px;
-            overflow: hidden;
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            /*border: 4px solid #234567;
-            box-shadow: 0px 0px 20px rgba(35, 69, 103, 0.9);*/
-            animation: pulse 1.5s infinite alternate;
-        }
-        @keyframes pulse {
-            0% { transform: translateX(-50%) scale(1); opacity: 1; }
-            100% { transform: translateX(-50%) scale(1.05); opacity: 0.9; }
-        }
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-item {
-            min-width: 100%;
-            background: #a6d5fa;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #234567;
-            cursor: pointer;
-        }
-        .footer {
-            width: 100%;
-            text-align: center;
-            padding: 10px;
-            background: #234567;
-            color: white;
-            position: fixed;
-            bottom: 0;
-        }
-        .quote {
-            font-size: 24px;
-            font-weight: bold;
-            color: #123456;
-            margin-bottom: 40px;
-        }
-        h1 {
-            font-family: 'ADLaM Display', sans-serif;
-            font-size: 32px;
-            font-weight: 600;
-            color: #234567;
-            text-align: center;
-            max-width: 80%;
-            line-height: 1.4;
-        } 
-        .logo-top-right {
-            position: fixed;
-            top: 20px; /* Distância do topo */
-            right: 20px; /* Distância da direita */
-            width: 100px; /* Ajuste o tamanho conforme necessário */
-            height: auto;
-            opacity: 1;
-        }
-        .logo-top-right:hover {
-            opacity: 1;
-        }
-    </style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* Menu lateral padrão para desktop */
+    nav {
+      width: 250px;
+      height: 100vh;
+      background: linear-gradient(to bottom, white 60%, #f0f0f0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      left: 0;
+      top: 0;
+      border-radius: 0 20px 20px 0;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      padding-bottom: 20px;
+      z-index: 100;
+    }
+
+    .nav-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding-left: 20px;
+    }
+
+    nav img {
+      max-width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    nav a {
+      color: #35608a;
+      text-decoration: none;
+      padding: 15px 10px;
+      width: 90%;
+      text-align: left;
+      transition: 0.3s;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+
+    nav a:hover {
+      background: rgba(9, 98, 182, 0.2);
+    }
+
+    nav a.active {
+      background: #a6d5fa;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      background: url('image/home.png') no-repeat center center/cover;
+      padding-bottom: 80px;
+    }
+
+    .carousel {
+      width: 80%;
+      max-width: 600px;
+      overflow: hidden;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      animation: pulse 1.5s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-50%) scale(1.05);
+        opacity: 0.9;
+      }
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      background: #a6d5fa;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #234567;
+      cursor: pointer;
+    }
+
+    .footer {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      background: #234567;
+      color: white;
+      position: fixed;
+      bottom: 0;
+    }
+
+    .quote {
+      font-size: 24px;
+      font-weight: bold;
+      color: #123456;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-family: 'ADLaM Display', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #234567;
+      text-align: center;
+      max-width: 80%;
+      line-height: 1.4;
+    }
+
+    .logo-top-right {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 80px;
+      height: auto;
+      z-index: 100;
+    }
+
+    /* Estilos do menu hambúrguer */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      font-size: 30px;
+      background: none;
+      border: none;
+      z-index: 200;
+      color: #234567;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex-direction: column;
+      padding: 20px 10px;
+      z-index: 150;
+    }
+
+    .mobile-menu a {
+      margin: 10px 0;
+      padding: 10px;
+      color: #35608a;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(9, 98, 182, 0.1);
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .content {
+        margin-left: 0;
+        padding-top: 100px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .carousel {
+        width: 90%;
+        top: 0;
+      }
+
+      .quote {
+        font-size: 18px;
+      }
+
+      h1 {
+        font-size: 22px;
+        max-width: 90%;
+      }
+
+      .footer {
+        font-size: 12px;
+      }
+
+      .logo-top-right {
+        width: 60px;
+        top: 10px;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .carousel-item {
+        font-size: 16px;
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .quote {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <img src="image/logo.png" alt="Logo">
-        <div class="nav-content">
-            <a href="index.html" class="active">INÍCIO</a>
-            <a href="quem-somos.html">QUEM SOMOS</a>
-            <a href="proposta.html">PROPOSTA</a>
-            <a href="servicos.html">SERVIÇOS</a>
-            <a href="contato.html" id="orcamento-link">ORÇAMENTO</a>
-        </div>
-    </nav>
-    <div class="content">
-        <div class="carousel" onclick="goToOrcamento()">
-            <div class="carousel-inner">
-                <div class="carousel-item">Solicite agora seu orçamento!</div>
-                <div class="carousel-item">Orçamento de serviços em até 48h!</div>
-                <div class="carousel-item">Solicite seu orçamento agora!!</div>
-            </div>
-        </div>
-        <h1>
-            <p class="quote">Se você está procurando um Rumo, te guiamos ao melhor caminho!</p>        
-        </h1>
+
+  <!-- Botão do Menu Hambúrguer -->
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+  <!-- Menu Mobile -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">INÍCIO</a>
+    <a href="quem-somos.html">QUEM SOMOS</a>
+    <a href="proposta.html">PROPOSTA</a>
+    <a href="servicos.html">SERVIÇOS</a>
+    <a href="contato.html" id="orcamento-link">ORÇAMENTO</a>
+  </div>
+
+  <!-- Menu Lateral Desktop -->
+  <nav>
+    <img src="image/logo.png" alt="Logo" />
+    <div class="nav-content">
+      <a href="index.html" class="active">INÍCIO</a>
+      <a href="quem-somos.html">QUEM SOMOS</a>
+      <a href="proposta.html">PROPOSTA</a>
+      <a href="servicos.html">SERVIÇOS</a>
+      <a href="contato.html" id="orcamento-link-desktop">ORÇAMENTO</a>
     </div>
-    <div class="footer">2025 Rumo4Projetos - Todos os direitos reservados</div>
-    <script>
-        let index = 0;
-        /* Função para exibir o slide correspondente */
-        function showSlide(n) {
-            const slides = document.querySelector('.carousel-inner');
-            const totalSlides = document.querySelectorAll('.carousel-item').length;
-            if (n >= totalSlides) index = 0;
-            else if (n < 0) index = totalSlides - 1;
-            else index = n;
-            slides.style.transform = `translateX(-${index * 100}%)`;
-        }
-        /* Função para passar para o próximo slide */
-        function nextSlide() { showSlide(index + 1); }
-        /* Função para voltar para o slide anterior */
-        function prevSlide() { showSlide(index - 1); }
-        /* Função para alternar os slides automaticamente */
-        function autoSlide() {
-            nextSlide();
-            setTimeout(autoSlide, 3000);
-        }
-        setTimeout(autoSlide, 3000);
-        /* Redireciona para a página de orçamento ao clicar no carrossel */
-        function goToOrcamento() {
-            document.getElementById('orcamento-link').click();
-        }
-    </script>
-    <img src="image/2.png" alt="Logo Extra" class="logo-top-right">
+  </nav>
+
+  <div class="content">
+    <div class="carousel" onclick="goToOrcamento()">
+      <div class="carousel-inner">
+        <div class="carousel-item">Solicite agora seu orçamento!</div>
+        <div class="carousel-item">Orçamento de serviços em até 48h!</div>
+        <div class="carousel-item">Solicite seu orçamento agora!!</div>
+      </div>
+    </div>
+    <h1>
+      <p class="quote">Se você está procurando um Rumo, te guiamos ao melhor caminho!</p>
+    </h1>
+  </div>
+
+  <div class="footer">2025 Rumo4Projetos - Todos os direitos reservados</div>
+
+  <img src="image/2.png" alt="Logo Extra" class="logo-top-right" />
+
+  <script>
+    let index = 0;
+    function showSlide(n) {
+      const slides = document.querySelector('.carousel-inner');
+      const totalSlides = document.querySelectorAll('.carousel-item').length;
+      if (n >= totalSlides) index = 0;
+      else if (n < 0) index = totalSlides - 1;
+      else index = n;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+    function nextSlide() {
+      showSlide(index + 1);
+    }
+    function autoSlide() {
+      nextSlide();
+      setTimeout(autoSlide, 3000);
+    }
+    setTimeout(autoSlide, 3000);
+
+    // Toggle do menu hamburguer
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    // Redireciona para orçamento
+    function goToOrcamento() {
+      const desktopLink = document.getElementById('orcamento-link-desktop');
+      const mobileLink = document.getElementById('orcamento-link');
+      if (window.innerWidth <= 768 && mobileLink) {
+        mobileLink.click();
+      } else if (desktopLink) {
+        desktopLink.click();
+      }
+    }
+  </script>
 </body>
 </html>
