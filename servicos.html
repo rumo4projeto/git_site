@@ -12,11 +12,13 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Arial', sans-serif;
-      display: flex;
-      height: 100vh;
+      min-height: 100vh;
+      background: #f4f4f4;
     }
+
     nav {
       width: 250px;
       height: 100vh;
@@ -30,7 +32,10 @@
       border-radius: 0 20px 20px 0;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
       padding-bottom: 20px;
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
     }
+
     .nav-content {
       display: flex;
       flex-direction: column;
@@ -38,11 +43,12 @@
       width: 100%;
       padding-left: 20px;
     }
+
     nav img {
       max-width: 130%;
-      padding: 0px;
       border-radius: 10px;
     }
+
     nav a {
       color: #35608a;
       text-decoration: none;
@@ -55,14 +61,32 @@
       border-radius: 10px;
       padding-left: 10px;
     }
+
     nav a:hover {
       background: rgba(9, 98, 182, 0.2);
     }
+
     nav a.active {
       background: #a6d5fa;
       border-radius: 10px;
       font-weight: bold;
     }
+
+    .menu-toggle {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #234567;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 20px;
+      border-radius: 5px;
+      z-index: 1100;
+      cursor: pointer;
+    }
+
     .content {
       margin-left: 250px;
       width: calc(100% - 250px);
@@ -79,7 +103,9 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      z-index: 0;
     }
+
     .content::after {
       content: "";
       position: absolute;
@@ -90,6 +116,7 @@
       background: rgba(255, 255, 255, 0.8);
       z-index: -1;
     }
+
     .footer {
       width: 100%;
       text-align: center;
@@ -99,6 +126,7 @@
       position: fixed;
       bottom: 0;
     }
+
     h1 {
       font-family: 'ADLaM Display', sans-serif;
       font-size: 32px;
@@ -143,7 +171,6 @@
       width: 100%;
       padding: 20px;
       text-align: center;
-      transition: background 0.3s ease;
     }
 
     .overlay h3 {
@@ -183,17 +210,38 @@
     .logo-top-right:hover {
       opacity: 1;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        transform: translateX(-100%);
+        position: fixed;
+      }
+
+      nav.active {
+        transform: translateX(0);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .content {
+        margin-left: 0;
+        width: 100%;
+        padding: 5vh 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <nav>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <nav id="sidebar">
     <img src="image/logo.png" alt="Logo">
     <div class="nav-content">
       <a href="index.html">INÍCIO</a>
       <a href="quem-somos.html">QUEM SOMOS</a>
       <a href="proposta.html">PROPOSTA</a>
       <a href="servicos.html" class="active">SERVIÇOS</a>
-      
       <a href="contato.html">ORÇAMENTO</a>
     </div>
   </nav>
@@ -390,6 +438,9 @@
         box.innerHTML = descriptions[index];
         box.style.display = 'block';
       }
+    }
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
     }
   </script>
 </body>
