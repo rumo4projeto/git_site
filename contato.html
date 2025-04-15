@@ -83,13 +83,14 @@
             align-items: center;
             text-align: center;
             position: relative;
-            background: url('image/home2.png') no-repeat center center/cover;
-            background-size: 30%;
+            background: url('image/home2.png') no-repeat center 40%;
+            background-size: 30%; /* 👈 Reduzido aqui */
             padding-top: 10vh;
             padding-left: 20px;
             padding-right: 20px;
             z-index: -1;
         }
+
 
         .content::after {
             content: "";
@@ -170,7 +171,7 @@
 
         .contact-info {
             position: fixed;
-            bottom: 50px;
+            bottom: 70px;
             left: 270px;
             display: flex;
             align-items: center;
@@ -227,8 +228,11 @@
         }
 
         @media (max-width: 768px) {
-            nav {
-                left: -250px;
+            .content {
+                margin-left: 0;
+                padding-top: 100px;
+                background-position: center 50%;
+                background-size: 50%; /* 👈 Aqui também pode ser ajustado */
             }
 
             nav.open {
@@ -242,13 +246,14 @@
             .content {
                 margin-left: 0;
                 padding-top: 100px;
+                background-position: center 50%;
                 background-size: 60%;
             }
 
             .contact-sup {
                 left: 20px;
-                top: 70px;     /* <-- voltou para o topo */
-                bottom: auto;  /* <-- removido o comportamento que jogava pra baixo */
+                top: 70px;
+                bottom: auto;
                 flex-direction: column;
                 gap: 10px;
             }
