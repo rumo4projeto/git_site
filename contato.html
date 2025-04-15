@@ -210,7 +210,6 @@
             margin: 0;
         }
 
-        /* Botão hamburguer */
         .hamburger {
             display: none;
             position: fixed;
@@ -227,7 +226,6 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Responsividade */
         @media (max-width: 768px) {
             nav {
                 left: -250px;
@@ -249,8 +247,8 @@
 
             .contact-sup {
                 left: 20px;
-                top: auto;
-                bottom: 140px;
+                top: 70px;     /* <-- voltou para o topo */
+                bottom: auto;  /* <-- removido o comportamento que jogava pra baixo */
                 flex-direction: column;
                 gap: 10px;
             }
