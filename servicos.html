@@ -277,8 +277,7 @@
   <script>
     const descriptions = [
   `
-  <div>
-    <h2 style="color: #234567; font-size: 22px; margin-bottom: 15px;">📊 <strong>Gerenciamento de Obra</strong></h2>
+      <h2 style="color: #234567; font-size: 22px; margin-bottom: 15px;">📊 <strong>Gerenciamento de Obra</strong></h2>
     <div style="display: flex; flex-direction: column; gap: 15px;">
       <div style="display: flex; align-items: flex-start; gap: 10px;">
         <span style="font-size: 20px;">📌</span>
@@ -304,23 +303,20 @@
       <div style="display: flex; align-items: flex-start; gap: 10px;">
         <span style="font-size: 20px;">👷🏽</span>
         <div>
-          <strong>⁠Acompanhamento técnico da Engenharia</strong><br/>
-         ✔️ Visitas técnicas; <br/>
-         ✔️ Fiscalização; <br/>
-         ✔️ Planejamento especializado;
+          <strong>Acompanhamento técnico da Engenharia</strong><br/>
+          ✔️ Visitas técnicas;<br/>
+          ✔️ Fiscalização;<br/>
+          ✔️ Planejamento especializado;
         </div>
-    </div>
-    <div style="display: flex; align-items: flex-start; gap: 10px;">
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 10px;">
         <span style="font-size: 20px;">🏙️</span>
         <div>
           <strong>Vistoria</strong><br/>
           Vistoria técnica em entrega de apartamentos.
-        </div>      
+        </div>
+      </div>
     </div>
-  </div>
-    <br/>
-  <br/>
-  <br/>
   `
   ,
   `
@@ -429,16 +425,14 @@
   `
 ];
 
+function showDescription(index) {
+    const box = document.getElementById("description-box");
+    box.innerHTML = descriptions[index];
+    box.style.display = "block";
+    box.scrollIntoView({ behavior: "smooth" });
+  }
 
-    function showDescription(index) {
-      const box = document.getElementById('description-box');
-      if (box.innerHTML === descriptions[index] && box.style.display === 'block') {
-        box.style.display = 'none';
-      } else {
-        box.innerHTML = descriptions[index];
-        box.style.display = 'block';
-      }
-    }
+
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('active');
     }
